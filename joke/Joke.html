@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Hind-Siliguri|Lobster" rel="stylesheet">
+
+    <style>
+        body{
+    background:rgb(248,49,49);
+        }
+
+        #JokeContainer{
+            background:white;
+            position:absolute;
+            transform: translate(20%,-45%);
+            top:50%;
+            width:900px;
+            height: 580px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,3),0 0 20px rgba(0,0,0,3);
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+           
+        }
+
+        #joke{
+            font-size:medium;
+        }
+
+        button{
+            width:200px;
+            height:calc(1.22*35px);
+            position:absolute;
+            top:90%;
+            left:50%;
+            transform:translate(-50%,-50%) scale(1.4);
+            background:rgb(255, 217, 0, 0.975);
+            color:black;
+            border:solid black;
+            cursor:pointer;
+            border-radius:5px;
+            font-size:1.2rem;
+            font-weight:600; 
+            transition: 0.3s;
+        }
+
+        #jokeTxt{
+            width:70%; 
+                text-align:center;
+                margin:auto; 
+                position:absolute;
+                left:50%;
+                top:57%;
+        }
+
+
+            h2{
+                width:70%; 
+                text-align:center;
+                margin:auto; 
+                position:absolute;
+                left:50%;
+                transform: translate(-50%,-50%);
+                top:57%; 
+
+            }
+
+            #emoji{
+                font-size:8rem; 
+                position:absolute;  
+                left:40%; 
+                top:6%; 
+
+            }
+        
+       #button:hover{
+        transform:translate(-50%,-50%) scale(1.47);
+       }
+    </style>
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+   <div id ="JokeContainer">
+    <span id="emoji">🤣:)</span>
+    <div>
+    <h2 id="jokeTxt"></h2>
+   </div>
+    <button id="button" onclick="window.location.reload()">New Joke</button>
+   </div>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/sv443-joke-api@0.0.8/web/index.js"></script>
+<script>
+    var container = document.querySelector("JokeContainer");
+    var joketext=document.querySelector("jokeTxt");
+    var button= document.getElementById('button');
+
+
+    JokeAPI.getJokes({ jokeType:"single"
+})
+    .then(res => res.json())
+    .then(data => {
+        displayJoke(data)   //displaycode
+    })
+
+    function displayJoke(jokeData)
+    {
+        jokeTxt.innerHTML = jokeData.joke;
+        console.log(jokeData.joke); 
+    }
+</script>
+</body>
+
+</html>
