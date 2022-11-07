@@ -8,10 +8,30 @@
 
   </head>
   <body>
+    <style>
+       button{
+            width:200px;
+            height:calc(1.22*35px);
+            position:centre;
+            top:90%;
+            left:50%;
+            transform:translate(-50%,-50%) scale(1.4);
+            background:rgba(255, 0, 166, 0.975);
+            color:black;
+            border:solid black;
+            cursor:pointer;
+            border-radius:5px;
+            font-size:1.2rem;
+            font-weight:600; 
+            transition: 0.3s;
+        }
+    </style>
 
     <div class="container">
       <h3>Refresh Me </h3>
-  <div class ="refresh"><p><h4>Refresh the page to play the Dice roll Game</h4></p></div>
+      <button id="button" onclick="window.location.reload()">New Round</button>
+</div>
+
       <div class="dice">
         <p>Player 1</p>
         <img class="img2" src="images/dice6.png">
